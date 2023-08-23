@@ -91,7 +91,7 @@ if(localStorage.getItem("Shiba") === null){
   localStorage.setItem("Shiba", "0");
 
   // Write the current amount of Shiba on the page
-  $(".ShibaAmount").text(Shiba.toFixed(8))
+  $(".ShibaAmount").text(Shiba.toFixed(11))
 
 }else{
 
@@ -172,7 +172,7 @@ Game.setPriceAtGameBeginning = function (element, price, itemAmount) {
   var multiplier = Game.GameConst.priceMultiplier
 
   // Calculate the new price -> price * multiplier^itemAmount
-  var calculation = (parseFloat(price) * Math.pow(multiplier, parseInt(itemAmount))).toFixed(8)
+  var calculation = (parseFloat(price) * Math.pow(multiplier, parseInt(itemAmount))).toFixed(11)
 
   // Showing the actual price
   element.children()[2].textContent = calculation + " Shiba"
@@ -244,9 +244,9 @@ Game.setShibaPerSecondRateAtBeginning = function () {
       ShibaRate = ShibaRate + (itemAmount * bits_per_sec)
 
       // Logging the calculation in the console
-      console.log("i = " + i + " | B/sec before: " + before.toFixed(8) +
-        " - Calculation made: " + before.toFixed(8) + " + (" + itemAmount + " * " + bits_per_sec + ") = " +  ShibaRate.toFixed(8) +
-        " | New B/sec at " + ShibaRate.toFixed(8))
+      console.log("i = " + i + " | B/sec before: " + before.toFixed(11) +
+        " - Calculation made: " + before.toFixed(11) + " + (" + itemAmount + " * " + bits_per_sec + ") = " +  ShibaRate.toFixed(11) +
+        " | New B/sec at " + ShibaRate.toFixed(11))
     }
   }
 
@@ -263,7 +263,7 @@ Game.setShibaPerSecondRateAtBeginning = function () {
 Game.setNewShibaRate = function (rate) {
 
   // Logging the new Bitcoin per second rate
-  console.log("setNewShibaRate -> New rate: " + (ShibaRate + rate).toFixed(8) )
+  console.log("setNewShibaRate -> New rate: " + (ShibaRate + rate).toFixed(11) )
 
   // Showing the new rate on the page
   // Rounding at specific values
@@ -274,7 +274,7 @@ Game.setNewShibaRate = function (rate) {
   }else if((bitcoinRate + rate) >= 1 ){
     $(".bSecRateNumber").text((ShibaRate + rate).toFixed(2))
   }else{
-    $(".bSecRateNumber").text((ShibaRate + rate).toFixed(8))
+    $(".bSecRateNumber").text((ShibaRate + rate).toFixed(11))
   }
 
   // Returning the new rate
@@ -308,7 +308,7 @@ Game.setNewPrice = function()
 
         // Calculation of the price
         var multiplier = Game.GameConst.priceMultiplier
-        var calculation = (parseFloat(items[i].price) * Math.pow(multiplier, parseInt(itemAmount))).toFixed(8)
+        var calculation = (parseFloat(items[i].price) * Math.pow(multiplier, parseInt(itemAmount))).toFixed(11)
 
         // Showing the actual price
         $element.children()[2].textContent = calculation + " Shiba"
@@ -343,7 +343,7 @@ Game.bSecFunction = function (rate) {
   }else if(Shiba >= 1){
     $(".ShibaAmount").text(Shiba.toFixed(2))
   }else{
-    $(".ShibaAmount").text(Shiba.toFixed(8))
+    $(".ShibaAmount").text(Shiba.toFixed(11))
   }
 
 
@@ -361,7 +361,7 @@ Game.bSecFunction = function (rate) {
   // Save bitcoin amount in the storage
   localStorage.setItem("Shiba", "" + Shiba + "")
 
-  console.log("bSec -> B/sec at " + rate.toFixed(8))
+  console.log("bSec -> B/sec at " + rate.toFixed(11))
 
 }
 
@@ -436,7 +436,7 @@ $(document).ready(function () {
   }else if(bitcoinRate >= 1 ){
     $(".bSecRateNumber").text(ShibaRate.toFixed(2))
   }else{
-    $(".bSecRateNumber").text(ShibaRate.toFixed(8))
+    $(".bSecRateNumber").text(ShibaRate.toFixed(11))
   }
 
 
@@ -457,7 +457,7 @@ $(document).ready(function () {
     }else if(Shiba >= 1){
       $(".ShibaAmount").text(Shiba.toFixed(2))
     }else{
-      $(".ShibaAmount").text(Shiba.toFixed(8))
+      $(".ShibaAmount").text(Shiba.toFixed(11))
     }
 
     if((Shiba * 100000000) < 1000000) {
@@ -495,10 +495,10 @@ $(document).ready(function () {
     var priceDisplay = $(this).children()[2]
 
     // If you have enough Shiba, it´ll buy one item
-    if(parseFloat(bitcoins.toFixed(8)) >= price){
+    if(parseFloat(bitcoins.toFixed(11)) >= price){
 
       // Substract the price from the current Bitcoin number and set it to the bitcoins variable.
-      Shiba = parseFloat(Shiba.toFixed(8)) - price
+      Shiba = parseFloat(Shiba.toFixed(11)) - price
 
       // Save the new amount of Bitcoins in the localStorage storage
       localStorage.setItem("Shiba", "" + Shiba + "")
@@ -519,7 +519,7 @@ $(document).ready(function () {
       }else if(Shiba >= 1){
         $(".ShibaAmount").text(Shiba.toFixed(2))
       }else{
-        $(".ShibaAmount").text(Shiba.toFixed(8))
+        $(".ShibaAmount").text(Shiba.toFixed(11))
       }
 
       // Calculation the Crystals amount
