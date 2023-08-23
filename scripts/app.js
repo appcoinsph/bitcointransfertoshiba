@@ -6,7 +6,7 @@ var bitcoinRate = 0
 var items = [
   {
     "name": "item_oldCalculator",
-    "price": "0.0000001"
+    "price": "0.00000000001"
   },
   {
     "name": "item_oldCpu",
