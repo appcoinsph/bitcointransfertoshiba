@@ -444,7 +444,7 @@ $(document).ready(function () {
   $(".Shiba").click(function () {
 
     // Add 1^-8 Bitcoins (equal to 1 satoshi)
-    Shiba = Shiba + 0.00000001
+    Shiba = Shiba + 0.00000000001
 
     // Show the new number on the page
     if(Shiba > 1000000){
